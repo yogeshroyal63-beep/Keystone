@@ -1,0 +1,361 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------
+   Theming
+   Both themes define the same variable names. Nothing below this
+   block may hard-code a colour: every surface, border and shadow
+   reads from a variable, so <html data-theme="light"> re-themes
+   the entire app in one step.
+   --------------------------------------------------------------- */
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #081120;
+  --bg-strong: #0e172b;
+  --tint-a: rgba(59, 130, 246, 0.12);
+  --tint-b: rgba(16, 185, 129, 0.10);
+
+  --panel-a: rgba(15, 27, 46, 0.97);
+  --panel-b: rgba(12, 21, 37, 0.96);
+  --panel-strong: #101b2b;
+  --panel-alt: #0b1526;
+  --field: rgba(9, 15, 25, 0.86);
+  --chip: rgba(255, 255, 255, 0.05);
+
+  --line: rgba(148, 163, 184, 0.18);
+  --line-strong: rgba(148, 163, 184, 0.28);
+  --grid-line: rgba(124, 199, 255, 0.08);
+
+  --text: #edf5ff;
+  --text-soft: #a9b7cf;
+
+  --accent: #7cc7ff;
+  --accent-strong: #4ea2ff;
+  --accent-tint: rgba(124, 199, 255, 0.14);
+  --accent-edge: rgba(124, 199, 255, 0.45);
+  --accent-glow: rgba(78, 162, 255, 0.25);
+  --on-accent: #04111d;
+
+  --accent-mint: #87f0d0;
+  --warning: #ffb86c;
+  --danger: #ff8b7a;
+  --danger-soft: #2a1a1e;
+  --success: #8de7b1;
+
+  --shadow: 0 28px 70px rgba(3, 8, 18, 0.55);
+  --shadow-card: 0 16px 42px rgba(2, 8, 17, 0.32);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  /* Light mode reads as drafting paper rather than plain white:
+     a faint blue-grey ground keeps the blueprint reference intact. */
+  --bg: #eef2f9;
+  --bg-strong: #f8fafd;
+  --tint-a: rgba(37, 99, 235, 0.07);
+  --tint-b: rgba(15, 118, 110, 0.05);
+
+  --panel-a: #ffffff;
+  --panel-b: #fbfcfe;
+  --panel-strong: #ffffff;
+  --panel-alt: #f4f7fc;
+  --field: #ffffff;
+  --chip: rgba(15, 23, 42, 0.04);
+
+  --line: rgba(15, 23, 42, 0.11);
+  --line-strong: rgba(15, 23, 42, 0.16);
+  --grid-line: rgba(37, 99, 235, 0.07);
+
+  --text: #101a2c;
+  --text-soft: #5a6b84;
+
+  --accent: #1f5fa8;
+  --accent-strong: #17487f;
+  --accent-tint: rgba(31, 95, 168, 0.10);
+  --accent-edge: rgba(31, 95, 168, 0.40);
+  --accent-glow: rgba(31, 95, 168, 0.18);
+  --on-accent: #ffffff;
+
+  --accent-mint: #0f766e;
+  --warning: #b45309;
+  --danger: #b44b2e;
+  --danger-soft: #fdeeea;
+  --success: #15803d;
+
+  --shadow: 0 24px 60px rgba(16, 26, 44, 0.10);
+  --shadow-card: 0 10px 28px rgba(16, 26, 44, 0.07);
+}
+
+:root {
+  font-family: 'IBM Plex Sans', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
+  background: var(--bg);
+}
+
+html, body, #root {
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, var(--tint-a), transparent 30%),
+    radial-gradient(circle at bottom right, var(--tint-b), transparent 25%),
+    var(--bg);
+  color: var(--text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3 {
+  font-family: 'Newsreader', serif;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  font-weight: 500;
+}
+
+button, input, select, textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Native dropdown lists follow color-scheme, so options stay legible
+   in both themes without extra work. */
+select option {
+  background: var(--panel-strong);
+  color: var(--text);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------- */
+
+.blueprint-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.premium-shell {
+  background: transparent;
+  min-height: 100vh;
+}
+
+.premium-card {
+  background: linear-gradient(180deg, var(--panel-a), var(--panel-b));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+}
+
+.surface {
+  background: linear-gradient(180deg, var(--panel-a), var(--panel-b));
+  border: 1px solid var(--line-strong);
+  border-radius: 18px;
+  box-shadow: var(--shadow-card);
+}
+
+.premium-button {
+  background: linear-gradient(135deg, var(--accent-strong), var(--accent));
+  border: 1px solid var(--accent-edge);
+  color: var(--on-accent);
+  font-weight: 600;
+  box-shadow: 0 12px 24px var(--accent-glow);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.premium-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 26px var(--accent-glow);
+  filter: brightness(1.04);
+}
+
+.premium-input {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  background: var(--field);
+  color: var(--text);
+  border-radius: 14px;
+  padding: 0.8rem 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.premium-input::placeholder {
+  color: var(--text-soft);
+}
+
+.premium-input:focus {
+  border-color: var(--accent-edge);
+  box-shadow: 0 0 0 3px var(--accent-tint);
+}
+
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  background: var(--chip);
+  color: var(--text-soft);
+  border-radius: 999px;
+  padding: 0.5rem 0.85rem;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 0.18s ease, color 0.18s ease;
+}
+
+.ghost-button:hover {
+  border-color: var(--accent-edge);
+  color: var(--text);
+}
+
+.record-row {
+  border-bottom: 1px solid var(--line);
+  padding: 20px 10px;
+}
+
+.record-row:first-child {
+  padding-top: 0;
+}
+
+.record-row:last-child {
+  border-bottom: none;
+}
+
+.mark-open {
+  color: var(--warning);
+}
+
+.mark-done {
+  color: var(--success);
+}
+
+.mark-open::before,
+.mark-done::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
+  background: currentColor;
+  position: relative;
+  top: -1px;
+}
+
+.wire-message {
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.wire-message:last-child {
+  border-bottom: none;
+}
+
+.wire-message .source-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-soft);
+}
+
+.conflict-brace {
+  border-left: 2px solid var(--danger);
+  padding-left: 18px;
+}
+
+.project-card {
+  display: block;
+  background: linear-gradient(180deg, var(--panel-a), var(--panel-b));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-edge);
+  box-shadow: var(--shadow);
+}
+
+.project-meta {
+  color: var(--text-soft);
+}
+
+.metric-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: var(--chip);
+  padding: 0.35rem 0.8rem;
+  color: var(--text-soft);
+}
+
+.metric-pill strong {
+  color: var(--text);
+}
+
+.nav-pill {
+  border-radius: 999px;
+  padding: 0.7rem 0.95rem;
+  border: 1px solid transparent;
+}
+
+.nav-pill.active {
+  background: var(--accent-tint);
+  border-color: var(--accent-edge);
+  color: var(--text);
+}
+
+.auth-card {
+  background: linear-gradient(180deg, var(--panel-a), var(--panel-b));
+  border: 1px solid var(--line-strong);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.font-mono-tag {
+  font-family: 'IBM Plex Mono', monospace;
+}

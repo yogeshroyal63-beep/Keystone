@@ -1,0 +1,127 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Keystone architecture diagram</title>
+  <desc id="desc">Diagram showing intake from WhatsApp, email, and site communication flowing into a parsing and AI analysis layer, then into project actions, decisions, conflicts, digest, memory, and the dashboard.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef4ff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" x2="1">
+      <stop offset="0%" stop-color="#1d4ed8"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 600 18px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .box-title { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .small { font: 600 16px 'Segoe UI', Arial, sans-serif; fill: #334155; }
+      .tiny { font: 600 14px 'Segoe UI', Arial, sans-serif; fill: #475569; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 2; rx: 22; }
+      .accent-box { fill: url(#accent); stroke: #1e40af; stroke-width: 2; rx: 22; }
+      .soft { fill: #eff6ff; stroke: #bfdbfe; stroke-width: 2; rx: 18; }
+      .output { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; rx: 18; }
+      .arrow { stroke: #475569; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+      .white-text { fill: #ffffff; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <text x="800" y="60" text-anchor="middle" class="title">Keystone</text>
+  <text x="800" y="96" text-anchor="middle" class="subtitle">Project Communication Intelligence Architecture</text>
+
+  <g filter="url(#shadow)">
+    <rect x="90" y="150" width="210" height="150" class="box"/>
+    <text x="195" y="190" text-anchor="middle" class="box-title">Communication</text>
+    <text x="195" y="223" text-anchor="middle" class="small">WhatsApp</text>
+    <text x="195" y="248" text-anchor="middle" class="small">Email</text>
+    <text x="195" y="273" text-anchor="middle" class="small">Site notes / files</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="410" y="150" width="230" height="150" class="box"/>
+    <text x="525" y="190" text-anchor="middle" class="box-title">Ingest Layer</text>
+    <text x="525" y="225" text-anchor="middle" class="small">Capture</text>
+    <text x="525" y="252" text-anchor="middle" class="small">Normalize</text>
+    <text x="525" y="279" text-anchor="middle" class="small">Store raw messages</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="760" y="150" width="260" height="150" class="box"/>
+    <text x="890" y="190" text-anchor="middle" class="box-title">Parsing + Context</text>
+    <text x="890" y="225" text-anchor="middle" class="small">Time / sender detection</text>
+    <text x="890" y="252" text-anchor="middle" class="small">Thread reconstruction</text>
+    <text x="890" y="279" text-anchor="middle" class="small">Conversation cleanup</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1160" y="150" width="300" height="150" class="accent-box"/>
+    <text x="1310" y="190" text-anchor="middle" class="box-title white-text">AI Analysis Engine</text>
+    <text x="1310" y="225" text-anchor="middle" class="small white-text">Groq LLM</text>
+    <text x="1310" y="252" text-anchor="middle" class="small white-text">Extract tasks</text>
+    <text x="1310" y="279" text-anchor="middle" class="small white-text">Decisions • conflicts • summary</text>
+  </g>
+
+  <path d="M300 225 H410" class="arrow"/>
+  <path d="M640 225 H760" class="arrow"/>
+  <path d="M1020 225 H1160" class="arrow"/>
+
+  <g filter="url(#shadow)">
+    <rect x="360" y="420" width="220" height="170" class="soft"/>
+    <text x="470" y="462" text-anchor="middle" class="box-title">Project Data</text>
+    <text x="470" y="495" text-anchor="middle" class="small">Messages</text>
+    <text x="470" y="520" text-anchor="middle" class="small">Tasks / actions</text>
+    <text x="470" y="545" text-anchor="middle" class="small">Decisions</text>
+    <text x="470" y="570" text-anchor="middle" class="small">Conflicts</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="700" y="420" width="220" height="170" class="soft"/>
+    <text x="810" y="462" text-anchor="middle" class="box-title">Digest</text>
+    <text x="810" y="495" text-anchor="middle" class="small">Summary</text>
+    <text x="810" y="520" text-anchor="middle" class="small">Open actions</text>
+    <text x="810" y="545" text-anchor="middle" class="small">Pending approvals</text>
+    <text x="810" y="570" text-anchor="middle" class="small">Priority issues</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1040" y="420" width="220" height="170" class="soft"/>
+    <text x="1150" y="462" text-anchor="middle" class="box-title">Memory</text>
+    <text x="1150" y="495" text-anchor="middle" class="small">Searchable history</text>
+    <text x="1150" y="520" text-anchor="middle" class="small">Thread references</text>
+    <text x="1150" y="545" text-anchor="middle" class="small">Past decisions</text>
+    <text x="1150" y="570" text-anchor="middle" class="small">Action log</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="640" y="680" width="420" height="160" class="output"/>
+    <text x="850" y="720" text-anchor="middle" class="box-title">Dashboard / Project Workspace</text>
+    <text x="850" y="755" text-anchor="middle" class="small">Project overview</text>
+    <text x="850" y="782" text-anchor="middle" class="small">Tasks • Decisions • Conflicts • Memory</text>
+    <text x="850" y="809" text-anchor="middle" class="small">Actionable project intelligence</text>
+  </g>
+
+  <path d="M1310 300 L1310 360 L470 360 L470 420" class="arrow"/>
+  <path d="M1310 300 L1310 360 L810 360 L810 420" class="arrow"/>
+  <path d="M1310 300 L1310 360 L1150 360 L1150 420" class="arrow"/>
+
+  <path d="M580 590 L580 640 L850 640 L850 680" class="arrow"/>
+  <path d="M810 590 L810 640" class="arrow"/>
+  <path d="M1150 590 L1150 640 L850 640" class="arrow"/>
+
+  <path d="M850 680 L850 635" class="arrow"/>
+
+  <g>
+    <rect x="120" y="700" width="260" height="120" class="box"/>
+    <text x="250" y="746" text-anchor="middle" class="box-title">Project Team</text>
+    <text x="250" y="780" text-anchor="middle" class="small">Review, approve, resolve</text>
+  </g>
+
+  <path d="M380 760 L640 760" class="arrow"/>
+</svg>
